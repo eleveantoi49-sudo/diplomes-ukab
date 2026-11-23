@@ -38,12 +38,12 @@
         }
         .controls {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 15px;
             flex-wrap: wrap;
         }
-        input, select {
-            padding: 10px;
+        input, select, button {
+            padding: 10px 14px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 15px;
@@ -51,6 +51,25 @@
         input {
             flex: 1;
             min-width: 220px;
+        }
+        button {
+            cursor: pointer;
+            font-weight: 600;
+            border: none;
+        }
+        .btn-search {
+            background-color: #004085;
+            color: white;
+        }
+        .btn-search:hover {
+            background-color: #002d5e;
+        }
+        .btn-reset {
+            background-color: #e2e8f0;
+            color: #333;
+        }
+        .btn-reset:hover {
+            background-color: #cbd5e1;
         }
         .stats {
             font-size: 14px;
@@ -94,7 +113,7 @@
     </header>
 
     <div class="controls">
-        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un nom, post-nom ou prénom...">
+        <input type="text" id="searchInput" oninput="filterTable()" placeholder="Rechercher un nom, post-nom ou prénom...">
         <select id="filiereFilter" onchange="filterTable()">
             <option value="ALL">Toutes les filières</option>
             <option value="Soins Généraux / Sciences Infirmières">Soins Généraux / Sciences Infirmières</option>
@@ -105,9 +124,11 @@
             <option value="2024-2025">2024-2025</option>
             <option value="2025-2026">2025-2026</option>
         </select>
+        <button type="button" class="btn-search" onclick="filterTable()">Rechercher</button>
+        <button type="button" class="btn-reset" onclick="resetFilters()">Effacer</button>
     </div>
 
-    <div class="stats" id="resultCount">Affichage de 71 étudiants</div>
+    <div class="stats" id="resultCount">Affichage de 71 étudiant(s)</div>
 
     <table id="graduatesTable">
         <thead>
@@ -169,8 +190,3 @@
 
             <!-- 2025-2026 : I. BAC 3 SOINS GENERAUX / SCIENCES INFIRMIERES (22 étudiants) -->
             <tr><td>1</td><td>BANZA NGOY Irguèle</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
-            <tr><td>2</td><td>BULAMBO BULAMBO Dominique</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
-            <tr><td>3</td><td>DISHA NTAMBO Hervé</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
-            <tr><td>4</td><td>ILUNGA MPYANA Samy</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
-            <tr><td>5</td><td>ILUNGA WA NGOY FWAMBA</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
-            <tr><td>6</td><td>KABONGO MULONGON Eneque</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
