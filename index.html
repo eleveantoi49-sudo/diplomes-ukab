@@ -14,11 +14,8 @@
         .tab-btn { padding: 8px 12px; border: 1px solid #004085; background: #fff; color: #004085; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; }
         .tab-btn.active { background: #004085; color: #fff; }
         .controls { display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; }
-        input, select, .action-btn { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; }
-        input { flex: 1; min-width: 200px; }
-        .action-btn { border: none; font-weight: bold; cursor: pointer; }
-        .btn-search { background: #004085; color: #fff; }
-        .btn-reset { background: #e2e8f0; color: #333; }
+        input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; }
+        input { flex: 1; min-width: 220px; }
         .stats { font-size: 14px; font-weight: bold; color: #004085; margin-bottom: 10px; }
         .table-wrapper { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; }
@@ -37,23 +34,21 @@
     </header>
 
     <div class="year-tabs">
-        <button type="button" class="tab-btn active" onclick="changerAnnee('ALL', this)">Toutes les années</button>
-        <button type="button" class="tab-btn" onclick="changerAnnee('2025-2026', this)">2025-2026</button>
-        <button type="button" class="tab-btn" onclick="changerAnnee('2024-2025', this)">2024-2025</button>
-        <button type="button" class="tab-btn" onclick="changerAnnee('2023-2024', this)">2023-2024</button>
-        <button type="button" class="tab-btn" onclick="changerAnnee('2022-2023', this)">2022-2023</button>
-        <button type="button" class="tab-btn" onclick="changerAnnee('2021-2022', this)">2021-2022</button>
+        <button type="button" class="tab-btn active" data-year="ALL">Toutes les années</button>
+        <button type="button" class="tab-btn" data-year="2025-2026">2025-2026</button>
+        <button type="button" class="tab-btn" data-year="2024-2025">2024-2025</button>
+        <button type="button" class="tab-btn" data-year="2023-2024">2023-2024</button>
+        <button type="button" class="tab-btn" data-year="2022-2023">2022-2023</button>
+        <button type="button" class="tab-btn" data-year="2021-2022">2021-2022</button>
     </div>
 
     <div class="controls">
-        <input type="text" id="champRecherche" onkeyup="filtrerListe()" placeholder="Écrivez un nom ici...">
-        <select id="filtreFiliere" onchange="filtrerListe()">
+        <input type="search" id="champRecherche" placeholder="Tapez un nom pour filtrer directement...">
+        <select id="filtreFiliere">
             <option value="ALL">Toutes les filières</option>
             <option value="Soins Généraux / Sciences Infirmières">Soins Généraux / Sciences Infirmières</option>
             <option value="Droit">Droit</option>
         </select>
-        <button type="button" class="action-btn btn-search" onclick="filtrerListe()">Rechercher</button>
-        <button type="button" class="action-btn btn-reset" onclick="toutEffacer()">Effacer</button>
     </div>
 
     <div class="stats" id="compteur">Affichage de 71 étudiant(s)</div>
@@ -117,3 +112,7 @@
                 <tr><td>16</td><td>LOMBE KAZADI Bienvenu</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
                 <tr><td>17</td><td>MBUYU MASANGU Chérubin</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
                 <tr><td>18</td><td>MPANGA WA NSHIMBA Fanfan</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+                <tr><td>19</td><td>MPOYO MWAKAKI Victor</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+                <tr><td>20</td><td>MULEYA MUKAYA Sylvie</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+                <tr><td>21</td><td>MUTAMBA KAYEMBE Stetemba</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+                <tr><td>22</td><td>MUTOMBO KAZADI Emmanuel</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
