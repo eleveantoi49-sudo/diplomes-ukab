@@ -13,7 +13,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             background: #fff;
             padding: 30px;
@@ -38,29 +38,35 @@
         }
         .controls {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
         input, select {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 15px;
         }
         input {
             flex: 1;
-            min-width: 250px;
+            min-width: 220px;
+        }
+        .stats {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
         }
         th, td {
-            padding: 12px 15px;
+            padding: 11px 14px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            font-size: 14px;
         }
         th {
             background-color: #004085;
@@ -88,101 +94,83 @@
     </header>
 
     <div class="controls">
-        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un nom ou un prénom...">
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un nom, post-nom ou prénom...">
+        <select id="filiereFilter" onchange="filterTable()">
+            <option value="ALL">Toutes les filières</option>
+            <option value="Soins Généraux / Sciences Infirmières">Soins Généraux / Sciences Infirmières</option>
+            <option value="Droit">Droit</option>
+        </select>
         <select id="yearFilter" onchange="filterTable()">
-            <option value="ALL">Toutes les années académiques</option>
+            <option value="ALL">Toutes les années</option>
             <option value="2024-2025">2024-2025</option>
             <option value="2025-2026">2025-2026</option>
         </select>
     </div>
 
+    <div class="stats" id="resultCount">Affichage de 71 étudiants</div>
+
     <table id="graduatesTable">
         <thead>
             <tr>
                 <th>N°</th>
-                <th>Nom et Post-nom / Prénom</th>
+                <th>Nom, Post-nom et Prénom</th>
                 <th>Filière (Bac 3)</th>
                 <th>Année Académique</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Échantillon 2024-2025 -->
-            <tr>
-                <td>1</td>
-                <td>ILUNGA KABAMBA Idriss</td>
-                <td>Soins Généraux / Sciences Infirmières</td>
-                <td>2024-2025</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>MULEYA MUKAYA Sylvie</td>
-                <td>Soins Généraux / Sciences Infirmières</td>
-                <td>2024-2025</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>KILOLO Ferdina Amsine</td>
-                <td>Droit</td>
-                <td>2024-2025</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>MAZEMBE BADECUX Pierre</td>
-                <td>Droit</td>
-                <td>2024-2025</td>
-            </tr>
+            <!-- 2024-2025 : I. BAC 3 SOINS GENERAUX / SCIENCES INFIRMIERES (40 étudiants) -->
+            <tr><td>1</td><td>ILUNGA KABAMBA Idriss</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>2</td><td>ILUNGA KASONGO Platon</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>3</td><td>KABAMBA YUMBA Yannick</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>4</td><td>KABANGE WA KAKOMA Patrick</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>5</td><td>KABANGE WA NGOY Chrisman</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>6</td><td>KABIZUMBA NGOY Thomas</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>7</td><td>KABULO LWA LA Benjamin</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>8</td><td>KALONDA MPOYO Léonard</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>9</td><td>KALONDA WA KALONDA Londres</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>10</td><td>KASONGO ILUNGA bisuya</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>11</td><td>KASONGO MUTOMBO Julien</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>12</td><td>KASONGO NGOY KITOMBOKELA</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>13</td><td>KAZADI KAYUMBA Espoir</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>14</td><td>KISULA WA NGOY Bellange</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>15</td><td>KITENGE WA KABANGA pipo</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>16</td><td>LOMBE KAZADI Bienvenu</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>17</td><td>MBUYU MASANGU Chérubin</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>18</td><td>MPANGA WA NSHIMBA Fanfan</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>19</td><td>MPOYO MWAKAKI Victor</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>20</td><td>MULEYA MUKAYA Sylvie</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>21</td><td>MUTAMBA KAYEMBE Stetemba</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>22</td><td>MUTOMBO KAZADI Emmanuel</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>23</td><td>MUTOMBO MUNKANA Jean</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>24</td><td>MUTOMBO NSHIMBA Christiane</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>25</td><td>MWAMBA ILUNGA Max</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>26</td><td>MWENYI WA BWANGA Trésor</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>27</td><td>NDAY WA ILUNGA Bienheureuse</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>28</td><td>NDAY WA KANYEBA Calvin</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>29</td><td>NDUNGA KIMOTO André</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>30</td><td>NGOY MBAYO Pascal</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>31</td><td>NGOY SAMWELE Bima chance</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>32</td><td>NGOY WA BANZA Seya</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>33</td><td>NGOY WA LUNKAMBA Cyprien</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>34</td><td>NKULU KILUMBA Olivier</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>35</td><td>NKULU NGOY Elie</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>36</td><td>NSHIMBA WA KUBATWA Leki</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>37</td><td>NUMBI NDALA Fabien</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>38</td><td>NUMBI NGOY Denis</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>39</td><td>TWITE KABULO Faline</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
+            <tr><td>40</td><td>TWITE MUTOMBO Angèle</td><td>Soins Généraux / Sciences Infirmières</td><td>2024-2025</td></tr>
 
-            <!-- Échantillon 2025-2026 -->
-            <tr>
-                <td>1</td>
-                <td>BANZA NGOY Irguèle</td>
-                <td>Soins Généraux / Sciences Infirmières</td>
-                <td>2025-2026</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>KUMWIMBA NGOMBE Chanelle</td>
-                <td>Soins Généraux / Sciences Infirmières</td>
-                <td>2025-2026</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>BWENYI KISONGA Dieme</td>
-                <td>Droit</td>
-                <td>2025-2026</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>KITENGIE KITENGIE Dieu merci</td>
-                <td>Droit</td>
-                <td>2025-2026</td>
-            </tr>
-        </tbody>
-    </table>
+            <!-- 2024-2025 : II. BAC 3 DROIT (4 étudiants) -->
+            <tr><td>1</td><td>KILOLO Ferdina Amsine</td><td>Droit</td><td>2024-2025</td></tr>
+            <tr><td>2</td><td>MAZEMBE BADECUX Pierre</td><td>Droit</td><td>2024-2025</td></tr>
+            <tr><td>3</td><td>BWANA NSHIMBA Jean Copson</td><td>Droit</td><td>2024-2025</td></tr>
+            <tr><td>4</td><td>KABOYO DOUMA RO Médard</td><td>Droit</td><td>2024-2025</td></tr>
 
-    <footer>
-        Fait à KABONGO, le 10/09/2026<br>
-        <strong>Le SEC. GEN. ACAD. / UKAB — C.T KALAMBO MULONGOY Léon</strong>
-    </footer>
-</div>
-
-<script>
-    function filterTable() {
-        const search = document.getElementById("searchInput").value.toUpperCase();
-        const year = document.getElementById("yearFilter").value;
-        const rows = document.getElementById("graduatesTable").getElementsByTagName("tr");
-
-        for (let i = 1; i < rows.length; i++) {
-            const nameCol = rows[i].getElementsByTagName("td")[1];
-            const yearCol = rows[i].getElementsByTagName("td")[3];
-            if (nameCol && yearCol) {
-                const nameMatch = nameCol.textContent.toUpperCase().indexOf(search) > -1;
-                const yearMatch = (year === "ALL") || (yearCol.textContent === year);
-                rows[i].style.display = (nameMatch && yearMatch) ? "" : "none";
-            }
-        }
-    }
-</script>
-
-</body>
-</html>
+            <!-- 2025-2026 : I. BAC 3 SOINS GENERAUX / SCIENCES INFIRMIERES (22 étudiants) -->
+            <tr><td>1</td><td>BANZA NGOY Irguèle</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
+            <tr><td>2</td><td>BULAMBO BULAMBO Dominique</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
+            <tr><td>3</td><td>DISHA NTAMBO Hervé</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
+            <tr><td>4</td><td>ILUNGA MPYANA Samy</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
+            <tr><td>5</td><td>ILUNGA WA NGOY FWAMBA</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
+            <tr><td>6</td><td>KABONGO MULONGON Eneque</td><td>Soins Généraux / Sciences Infirmières</td><td>2025-2026</td></tr>
