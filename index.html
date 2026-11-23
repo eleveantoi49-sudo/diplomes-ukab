@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UKAB - Répertoire Officiel des Diplômés</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #004085;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        header h1 {
+            margin: 0;
+            color: #004085;
+            font-size: 24px;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-weight: bold;
+            color: #555;
+        }
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        input, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input {
+            flex: 1;
+            min-width: 250px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #004085;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>UKAB - SECRÉTARIAT GÉNÉRAL ACADÉMIQUE</h1>
+        <p>LISTE DÉCLARATIVE OFFICIELLE DES ÉTUDIANTS DE BAC 3</p>
+    </header>
+
+    <div class="controls">
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un nom ou un prénom...">
+        <select id="yearFilter" onchange="filterTable()">
+            <option value="ALL">Toutes les années académiques</option>
+            <option value="2024-2025">2024-2025</option>
+            <option value="2025-2026">2025-2026</option>
+        </select>
+    </div>
+
+    <table id="graduatesTable">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nom et Post-nom / Prénom</th>
+                <th>Filière (Bac 3)</th>
+                <th>Année Académique</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Échantillon 2024-2025 -->
+            <tr>
+                <td>1</td>
+                <td>ILUNGA KABAMBA Idriss</td>
+                <td>Soins Généraux / Sciences Infirmières</td>
+                <td>2024-2025</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>MULEYA MUKAYA Sylvie</td>
+                <td>Soins Généraux / Sciences Infirmières</td>
+                <td>2024-2025</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>KILOLO Ferdina Amsine</td>
+                <td>Droit</td>
+                <td>2024-2025</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>MAZEMBE BADECUX Pierre</td>
+                <td>Droit</td>
+                <td>2024-2025</td>
+            </tr>
+
+            <!-- Échantillon 2025-2026 -->
+            <tr>
+                <td>1</td>
+                <td>BANZA NGOY Irguèle</td>
+                <td>Soins Généraux / Sciences Infirmières</td>
+                <td>2025-2026</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>KUMWIMBA NGOMBE Chanelle</td>
+                <td>Soins Généraux / Sciences Infirmières</td>
+                <td>2025-2026</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>BWENYI KISONGA Dieme</td>
+                <td>Droit</td>
+                <td>2025-2026</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>KITENGIE KITENGIE Dieu merci</td>
+                <td>Droit</td>
+                <td>2025-2026</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer>
+        Fait à KABONGO, le 10/09/2026<br>
+        <strong>Le SEC. GEN. ACAD. / UKAB — C.T KALAMBO MULONGOY Léon</strong>
+    </footer>
+</div>
+
+<script>
+    function filterTable() {
+        const search = document.getElementById("searchInput").value.toUpperCase();
+        const year = document.getElementById("yearFilter").value;
+        const rows = document.getElementById("graduatesTable").getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            const nameCol = rows[i].getElementsByTagName("td")[1];
+            const yearCol = rows[i].getElementsByTagName("td")[3];
+            if (nameCol && yearCol) {
+                const nameMatch = nameCol.textContent.toUpperCase().indexOf(search) > -1;
+                const yearMatch = (year === "ALL") || (yearCol.textContent === year);
+                rows[i].style.display = (nameMatch && yearMatch) ? "" : "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
